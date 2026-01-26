@@ -1,0 +1,193 @@
+/*La  charte graphique, je designe l'ensemble des couleurs utilisé dans le site */
+:root {
+    --primary-color: #2d5a27;   /* vert foncé */
+    --secondary-color: #a8e063; /* vert clair */
+    --accent-color: #eef7ed;    /* fond blanc pour la clarté*/
+    --text-color: #333; /* text noir pour la lisibilité */
+    --white: #ffffff; /* blanc pour le logo "SimplNutri" */
+}
+
+/* Les noms sont personnalisés aux variables pour éviter les erreurs */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f4f4f4;
+}
+
+/* Centreur, c'est la structure qui centre le contenu, est commune a toutes les pages */
+.centreur {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Version avec fond blanc et relief pour les articles */
+.boite-blanche {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: -50px; /* Effet de superposition vu en cours */
+    position: relative;
+    z-index: 10;
+}
+
+/* la navigation pour les flex-box */
+header {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*affichage du logo, en écriture blanche*/
+.logo { color: var(--white); font-size: 1.6rem; font-weight: bold; }
+
+nav ul { display: flex; list-style: none; gap: 20px; }
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active { color: var(--secondary-color); }
+
+/* 4. STYLE affichage des images*/
+.banniere, .section-image {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Les images "d'accueil", representative du contenu de la page*/
+.image-index { 
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('images/food_splatter.jpg'); 
+}
+
+.image-glucides { 
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('images/carb_splatter.jpg'); 
+}
+
+.image-proteines {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('images/all_proteins_splatter.jpg');
+}
+
+.image-lipides {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('images/all_proteins_splatter.jpg');
+}
+/*J'ai utilisée la ême image pour le fond de l'en-tête de la page protéines et de la page lipides, car cette image contient à la fois des bonnes sources de protéines mais également de lipides. Par exemple, le saumon c'est à la fois des exelentes protéines et lipides, pareil pour les pois chiches etc*/
+
+.image-micronutriments {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('images/health_splatter.jpg');
+}
+
+/* Maintenant, le style des images qui sont de corps de page */
+.fond-fruit { background-image: url('images/fruit_splatter.jpg'); }
+.carbs-bg { background-image: url('images/complexe_carb_splatter.jpg'); }
+
+/* image de fond pour la boite des protéines animales */
+.image-viande { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                      url('images/animal_proteins_splatter.jpg'); 
+}
+/* image de fond pour la boite des protéines végétales */
+.image-vegetal { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                      url('images/plant_based_protein_splatter.jpg'); 
+}
+
+/* Images pour la page des lipides */
+
+.image-bonne-graisse { background-image: url('images/healthy_fats_splatter.jpg'); }
+.image-friture { background-image: url('images/fried_food.jpg'); }
+
+
+
+/*Images pour la page des micronutriments*/
+
+.image-vitamines {background-image: url('images/vitamines_splatter.jpg');}
+.image-nutriments {background-image: url('images/nutrient_array.jpg');}
+.fond-plat { background-image: url('images/balanced_plate.jpg'); }
+
+
+/* le CONTENU (en modèle de boîte) */
+.boite-transparente {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    color: var(--text-color);
+}
+
+.boite-pop {
+    background-color: var(--accent-color);
+    padding: 25px;
+    border-left: 6px solid var(--primary-color);
+    margin: 30px 0;
+    border-radius: 4px;
+}
+
+/* Le RESPONSIVE DESIGN avec le menu burger */
+#menu-toggle { display: none; }
+
+.icone-burger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.barre {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: white;
+    position: relative;
+    top: 13px;
+    border-radius: 3px;
+}
+
+.barre::before { content: ""; position: absolute; top: -10px; width: 30px; height: 4px; background: white; }
+.barre::after { content: ""; position: absolute; top: 10px; width: 30px; height: 4px; background: white; }
+
+@media screen and (max-width: 768px) {
+    .icone-burger { display: block; }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+    }
+    #menu-toggle:checked ~ ul { display: flex; }
+}
+
+footer { text-align: center; padding: 30px; background: #333; color: white; margin-top: 40px; }
